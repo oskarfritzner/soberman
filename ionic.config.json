@@ -1,0 +1,7 @@
+{
+  "name": "soberman",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
