@@ -1,9 +1,17 @@
 <template>
   <ion-app>
-    <ion-router-outlet />
+    <router-view></router-view>
   </ion-app>
 </template>
 
-<script setup lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+});
 </script>
+
+<style>
+/* Add any global styles here */
+</style>
