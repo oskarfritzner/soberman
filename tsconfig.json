@@ -11,8 +11,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"],
-    "skipLibCheck": true
+    "types": ["vite/client", "@types/node"],
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
