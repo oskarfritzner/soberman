@@ -16,9 +16,24 @@
           <ion-card-title>Welcome to Soberman</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-button @click="showSection('calendar')">Calendar View</ion-button>
-          <ion-button @click="showSection('journal')">Journal View</ion-button>
-          <ion-button @click="showSection('benefits')">Benefits View</ion-button>
+          <ion-button
+            class="custom-button"
+            @click="showSection('calendar')"
+          >
+            <span class="button-text">Calendar</span>
+          </ion-button>
+          <ion-button
+            class="custom-button"
+            @click="showSection('journal')"
+          >
+            <span class="button-text">Journal</span>
+          </ion-button>
+          <ion-button
+            class="custom-button"
+            @click="showSection('benefits')"
+          >
+            <span class="button-text">Benefits</span>
+          </ion-button>
         </ion-card-content>
       </ion-card>
       <div v-if="activeSection === 'calendar'" class="section-box">
@@ -82,6 +97,31 @@ export default defineComponent({
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #f3f0f0;
 }
+
+.custom-button {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 12px;
+}
+
+.calendar-button {
+  background-image: url("/images/benefits-image.webp");
+  background-size: cover;
+}
+
+.journal-button {
+  background-image: url("/images/journal-image.webp");
+}
+
+.benefits-button {
+  background-image: url("/images/benefits-image.jpeg");
+}
+
+
 </style>
