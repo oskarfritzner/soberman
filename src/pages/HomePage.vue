@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>
-          <img src="#" alt="Soberman Logo" class="logo" />
+          <img src="/public/images/Sober.png" alt="Soberman Logo" class="logo" />
         </ion-title>
         <ion-buttons slot="end">
           <ion-button>Login</ion-button>
@@ -13,48 +13,48 @@
     <ion-content>
       <ion-card>
         <ion-card-header>
-          <ion-card-title>What do you want to see today?</ion-card-title>
+          <ion-card-title class="page-title">Welcome to 
+            <span><img class="soberman-image" src="/public/images/soberman.png" alt="Soberman"/>
+          </span> Soberman</ion-card-title>
         </ion-card-header>
-        <ion-grid class="hp-nav-btns-section">
-          <ion-row>
-            <ion-col>
+  
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="page-title">What do you want to see today?</ion-card-title>
+        </ion-card-header>
+        <ion-grid :fixed="true">
+          <ion-row class=".ion-align-items-stretch">
+            <ion-col size="6" size-lg="2">
               <ion-card>
                 <img src="/public/images/calendar-image.webp" alt="Calendar" />
                 <ion-card-header>
                   <ion-card-title>Your Sober Timeline</ion-card-title>
                 </ion-card-header>
-
-                <ion-card-content>
-                  Keeping track of your days sober can be a great motivator by
-                  seeing how far you have come.
-                </ion-card-content>
               </ion-card>
             </ion-col>
-            <ion-col>
+            <ion-col size="6" size-lg="2">
               <ion-card>
                 <img src="/public/images/journal-image.webp" alt="Journal" />
                 <ion-card-header>
                   <ion-card-title>Your Sober Journal</ion-card-title>
                 </ion-card-header>
-
-                <ion-card-content>
-                  Keeping score of how you feel each day can help you see
-                  patterns and triggers that you may not have noticed before.
-                </ion-card-content>
               </ion-card>
             </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
+            <ion-col size="6" size-lg="2">
               <ion-card>
             <img src="/public/images/benefits-image.jpeg" alt="benefits" />
             <ion-card-header>
               <ion-card-title>See your benefits</ion-card-title>
             </ion-card-header>
-
-            <ion-card-content>
-              See the benefits of being sober and how it can improve your life.
-            </ion-card-content>
+          </ion-card>
+            </ion-col>
+            <ion-col size="6" size-lg="2">
+              <ion-card>
+            <img src="/public/images/benefits-image.jpeg" alt="benefits" />
+            <ion-card-header>
+              <ion-card-title>See your benefits</ion-card-title>
+            </ion-card-header>
           </ion-card>
             </ion-col>
           </ion-row>
@@ -75,7 +75,6 @@ import {
   IonCard,
   IonCardHeader,
   IonCardTitle,
-  IonCardContent,
   IonButton,
   IonButtons,
 } from "@ionic/vue";
@@ -91,7 +90,6 @@ export default defineComponent({
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonCardContent,
     IonButton,
     IonButtons,
   },
@@ -116,6 +114,51 @@ export default defineComponent({
   width: auto;
 }
 
+.soberman-image {
+  margin: 0;
+  width: 100%;
+  height: 300px;
+}
+
+.page-title {
+  font-size: 24px;
+}
+
+ion-toolbar {
+  --background: white;
+  
+}
+
+ion-grid {
+  --ion-grid-padding: 12px;
+  
+}
+
+ion-col {
+  margin-top: 10px;
+}
+
+ion-col > ion-card {
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  height: 100%;
+}
+
+ion-card > img {
+  width: 100%;
+  height: 120px;
+}
+
+ion-card > ion-card-header {
+  padding: 10px;
+  text-align: center;
+}
+
+ion-card > ion-card-header > ion-card-title {
+  font-size: 16px;
+}
+
 #calendar-image {
   background-image: url("/images/calendar-image.webp");
   --background: cover;
@@ -129,5 +172,12 @@ export default defineComponent({
 #benefits-button {
   background-image: url("/images/benefits-image.jpeg");
   --background: cover;
+}
+
+@media (min-width: 720px) {
+  ion-row {
+    margin: 20px;
+    justify-content: space-between;
+  }
 }
 </style>
