@@ -1,21 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>
-          <img
-            src="/public/images/Sober.png"
-            alt="Soberman Logo"
-            class="logo"
-          />
-        </ion-title>
-        <ion-buttons slot="end">
-          <router-link to="/login">
-            <ion-button>Login</ion-button>
-          </router-link>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
+    <ToolbarComponent />
     <ion-content>
       <ion-card>
         <ion-card-header>
@@ -97,30 +82,23 @@
 import { defineComponent, ref } from "vue";
 import {
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonContent,
   IonCard,
   IonCardHeader,
   IonCardTitle,
-  IonButton,
-  IonButtons,
 } from "@ionic/vue";
+
+import ToolbarComponent from "@/components/ToolbarComponent.vue";
 
 export default defineComponent({
   name: "HomePage",
   components: {
     IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
+    ToolbarComponent,
     IonContent,
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonButton,
-    IonButtons,
   },
   setup() {
     const activeSection = ref<string | null>(null);
