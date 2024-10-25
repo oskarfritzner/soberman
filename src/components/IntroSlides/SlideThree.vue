@@ -1,13 +1,13 @@
 <template>
   <div class="slide-container">
-  <ion-card>
-    <ion-card-content>
-      <h2>Congratulations on your sobriety journey!</h2>
-      <router-link to="/">
-        <ion-button>Go to Home</ion-button>
-      </router-link>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <h2>Congratulations on your sobriety journey!</h2>
+        <router-link to="/">
+          <ion-button>Go to Home</ion-button>
+        </router-link>
+      </ion-card-content>
+    </ion-card>
   </div>
 </template>
 

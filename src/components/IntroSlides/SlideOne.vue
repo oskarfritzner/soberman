@@ -1,11 +1,11 @@
 <template>
   <div class="slide-container">
-  <ion-card>
-    <ion-card-content>
-      <img src="/public/images/soberman-blond.png" alt="Soberman" />
-      <RegisterView @registered="moveToNextSlide" />
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <img src="/public/images/soberman-blond.png" alt="Soberman" />
+        <RegisterView @registered="moveToNextSlide" />
+      </ion-card-content>
+    </ion-card>
   </div>
 </template>
 

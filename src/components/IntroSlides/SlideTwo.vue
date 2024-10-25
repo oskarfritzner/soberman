@@ -1,17 +1,28 @@
 <template>
   <div class="slide-container">
-  <ion-card>
-    <ion-card-content>
-      <h2>Tell us more about yourself</h2>
-      
-      <ion-input v-model="sobrietyDate" placeholder="Sobriety Start Date" type="date"></ion-input>
-      <ion-input v-model="weeklySpend" placeholder="How much do you usually spend on alcohol each week?" type="number"></ion-input>
-      <ion-input v-model="timeAffected" placeholder="How many hours are you affected by alcohol weekly?" type="number"></ion-input>
-      <ion-textarea v-model="optionalQuote" placeholder="Why did you stop drinking? (Optional)"></ion-textarea>
+    <ion-card>
+      <ion-card-content>
+        <h2>Tell us more about yourself</h2>
+        
+        <!-- Sobriety Date -->
+        <label for="sobrietyDate">When did you start your sobriety journey?</label>
+        <ion-input id="sobrietyDate" v-model="sobrietyDate" placeholder="Sobriety Start Date" type="date"></ion-input>
 
-      <ion-button @click="saveUserInfo">Submit</ion-button>
-    </ion-card-content>
-  </ion-card>
+        <!-- Weekly Spend -->
+        <label for="weeklySpend">How much do you usually spend on alcohol each week?</label>
+        <ion-input id="weeklySpend" v-model="weeklySpend" placeholder="Enter amount" type="number"></ion-input>
+
+        <!-- Time Affected -->
+        <label for="timeAffected">How many hours are you affected by alcohol weekly?</label>
+        <ion-input id="timeAffected" v-model="timeAffected" placeholder="Enter hours" type="number"></ion-input>
+
+        <!-- Optional Quote -->
+        <label for="optionalQuote">Why did you stop drinking? (Optional)</label>
+        <ion-textarea id="optionalQuote" v-model="optionalQuote" placeholder="Why did you stop drinking?"></ion-textarea>
+
+        <ion-button @click="saveUserInfo">Submit</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </template>
 

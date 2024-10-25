@@ -9,7 +9,7 @@
             <span
               ><img
                 class="soberman-image"
-                src="/public/images/soberman.png"
+                src="/public/images/soberman-blond.png"
                 alt="Soberman"
               />
             </span>
@@ -124,7 +124,8 @@ export default defineComponent({
 .soberman-image {
   margin: 0;
   width: 100%;
-  height: 300px;
+  height: 350px;
+  margin: 10px 0px;
 }
 
 .page-title {

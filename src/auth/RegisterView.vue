@@ -47,7 +47,8 @@ export default defineComponent({
     align-items: center;
     height: 200px;
     margin: 0;
-    box-shadow: 0px 4px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0;
+    padding: 10px;
   }
   
   ion-card-title {
@@ -55,9 +56,7 @@ export default defineComponent({
   }
   
   ion-button {
-    --background: var(--ion-color-secondary);
-    margin-top: 20px;
-    --color: white;
+    padding: 0 50px;
   }
   
   ion-button:hover {
