@@ -5,6 +5,7 @@ import JournalPage from '../pages/JournalPage.vue';
 import BenefitsPage from '../pages/BenefitsPage.vue';
 import RewardsPage from '../pages/RewardsPage.vue';
 import LoginPage from '../pages/LoginPage.vue';
+import IntroView from '../components/IntroSlides/IntroView.vue';
 
 
 const routes = [
@@ -37,7 +38,12 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: LoginPage,
-  }
+  },
+  {
+    path: '/intro',
+    name: 'intro',
+    component: IntroView,
+  },
 ];
 
 const router = createRouter({

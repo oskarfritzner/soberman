@@ -1,5 +1,4 @@
 <template>
-    <ion-page>
         <ion-card class="login-card">
           <ion-card-header>
             <ion-card-title>Sign in to Soberman</ion-card-title>
@@ -11,13 +10,11 @@
   
             <ion-button
               expand="block"
-              color="primary"
               @click="signInWithGoogle"
             >
               Sign in with Google
             </ion-button>
         </ion-card>
-    </ion-page>
   </template>
   
   <script lang="ts">
@@ -45,10 +42,14 @@
   
   <style scoped>
   .login-card {
-    margin: 20px auto;
-    width: 100%;
-    max-width: 400px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin: 0;
+    box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.1);
   }
   
   ion-card-title {
@@ -56,6 +57,12 @@
   }
   
   ion-button {
+    --background: var(--ion-color-secondary);
     margin-top: 20px;
+    --color: white;
+  }
+
+  ion-btton:hover{
+    --background: var(--ion-color-primary);
   }
   </style>

@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import { auth } from '../firebase';
+import { ref, onMounted } from "vue";
+import { auth } from "../firebase";
 
 export default {
   setup() {
@@ -52,5 +52,18 @@ export default {
 
 ion-toolbar {
   --background: white;
+  border: none;
+  height: 5vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+ion-title {
+  padding: 0;
+  width: 20%;
+}
+
 </style>
