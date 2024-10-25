@@ -1,40 +1,43 @@
 <template>
-    <ion-card class="login-card">
-      <ion-card-header>
-        <ion-card-title>Register for Soberman</ion-card-title>
-      </ion-card-header>
-  
-      <ion-text color="medium">
-        <p>Please register with your Google account to continue.</p>
-      </ion-text>
-  
-      <ion-button expand="block" @click="registerWithGoogle">
-        Register with Google
-      </ion-button>
-    </ion-card>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from "vue";
-  import { signInWithPopup, auth, provider } from "../firebase";
-  
-  export default defineComponent({
-    name: "RegisterView",
-    methods: {
-      async registerWithGoogle() {
-        try {
-          const result = await signInWithPopup(auth, provider);
-          const user = result.user;
-          console.log("User registered:", user);
-          this.$router.push("/");
-        } catch (error) {
-          console.error("Error registering:", error);
-        }
-      },
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-title>Register for Soberman</ion-card-title>
+    </ion-card-header>
+
+    <ion-text color="medium">
+      <p>Please register with your Google account to continue.</p>
+    </ion-text>
+
+    <ion-button expand="block" @click="registerWithGoogle">
+      Register with Google
+    </ion-button>
+  </ion-card>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { signInWithPopup, auth, provider } from "../firebase";
+
+export default defineComponent({
+  name: "RegisterView",
+  emits: ["registered"],  // Emit custom event when registration is successful
+  methods: {
+    async registerWithGoogle() {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log("User registered:", user);
+
+        // Emit the "registered" event
+        this.$emit("registered");
+      } catch (error) {
+        console.error("Error registering:", error);
+      }
     },
-  });
-  </script>
-  
+  },
+});
+</script>
+
   <style scoped>
   .login-card {
     text-align: center;

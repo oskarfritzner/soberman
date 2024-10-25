@@ -1,0 +1,73 @@
+/* slideStyle.css */
+
+.slide-container {
+    /* General Slide Styling */
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    /* Card Styling */
+    ion-card {
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+  
+    /* Card Content */
+    ion-card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    /* Heading Styling */
+    ion-card h2 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    /* Input Styling */
+    ion-input,
+    ion-textarea {
+      --padding-start: 15px;
+      --padding-end: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+  
+    ion-input::part(native),
+    ion-textarea::part(native) {
+      font-size: 1rem;
+    }
+  
+    /* Button Styling */
+    ion-button {
+      margin-top: 20px;
+      --background: #5c7cfa;
+      --border-radius: 8px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      font-weight: bold;
+    }
+  
+    ion-button:hover {
+      --background: #4a63d3;
+    }
+  
+    /* Optional Quote Styling */
+    ion-textarea {
+      height: 80px;
+      resize: none;
+    }
+  }
