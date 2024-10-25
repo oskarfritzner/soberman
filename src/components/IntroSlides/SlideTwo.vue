@@ -8,6 +8,8 @@
   
   <script setup lang="ts">
   import { IonCard, IonCardContent } from "@ionic/vue";
+
+  
   </script>
 
 <style scoped>

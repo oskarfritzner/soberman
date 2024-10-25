@@ -57,8 +57,11 @@ export default defineComponent({
     return {
       slideData,
     };
+
+    
   },
 });
+
 </script>
 
 <style scoped>
