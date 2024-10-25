@@ -2,7 +2,7 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title>Journal</ion-title>
+                <ion-title>Rewards</ion-title>
             </ion-toolbar>
         </ion-header>
     </ion-page>

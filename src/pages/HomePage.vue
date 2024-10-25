@@ -3,59 +3,88 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>
-          <img src="/public/images/Sober.png" alt="Soberman Logo" class="logo" />
+          <img
+            src="/public/images/Sober.png"
+            alt="Soberman Logo"
+            class="logo"
+          />
         </ion-title>
         <ion-buttons slot="end">
-          <ion-button>Login</ion-button>
+          <router-link to="/login">
+            <ion-button>Login</ion-button>
+          </router-link>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-card>
         <ion-card-header>
-          <ion-card-title class="page-title">Welcome to 
-            <span><img class="soberman-image" src="/public/images/soberman.png" alt="Soberman"/>
-          </span> Soberman</ion-card-title>
+          <ion-card-title class="page-title"
+            >Welcome to
+            <span
+              ><img
+                class="soberman-image"
+                src="/public/images/soberman.png"
+                alt="Soberman"
+              />
+            </span>
+            Soberman</ion-card-title
+          >
         </ion-card-header>
-  
       </ion-card>
       <ion-card>
         <ion-card-header>
-          <ion-card-title class="page-title">What do you want to see today?</ion-card-title>
+          <ion-card-title class="page-title"
+            >What do you want to see today?</ion-card-title
+          >
         </ion-card-header>
         <ion-grid :fixed="true">
           <ion-row class=".ion-align-items-stretch">
             <ion-col size="6" size-lg="2">
-              <ion-card>
-                <img src="/public/images/calendar-image.webp" alt="Calendar" />
-                <ion-card-header>
-                  <ion-card-title>Your Sober Timeline</ion-card-title>
-                </ion-card-header>
-              </ion-card>
+              <router-link to="/calendar">
+                <ion-card>
+                  <img
+                    src="/public/images/calendar-image.webp"
+                    alt="Calendar"
+                  />
+                  <ion-card-header>
+                    <ion-card-title>Your Sober Timeline</ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </router-link>
             </ion-col>
             <ion-col size="6" size-lg="2">
-              <ion-card>
-                <img src="/public/images/journal-image.webp" alt="Journal" />
-                <ion-card-header>
-                  <ion-card-title>Your Sober Journal</ion-card-title>
-                </ion-card-header>
-              </ion-card>
+              <router-link to="/journal">
+                <ion-card>
+                  <img src="/public/images/journal-image.webp" alt="Journal" />
+                  <ion-card-header>
+                    <ion-card-title>Your Sober Journal</ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </router-link>
             </ion-col>
             <ion-col size="6" size-lg="2">
-              <ion-card>
-            <img src="/public/images/benefits-image.jpeg" alt="benefits" />
-            <ion-card-header>
-              <ion-card-title>See your benefits</ion-card-title>
-            </ion-card-header>
-          </ion-card>
+              <router-link to="/benefits">
+                <ion-card>
+                  <img
+                    src="/public/images/benefits-image.jpeg"
+                    alt="benefits"
+                  />
+                  <ion-card-header>
+                    <ion-card-title>See your benefits</ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </router-link>
             </ion-col>
             <ion-col size="6" size-lg="2">
-              <ion-card>
-            <img src="/public/images/benefits-image.jpeg" alt="benefits" />
-            <ion-card-header>
-              <ion-card-title>See your benefits</ion-card-title>
-            </ion-card-header>
-          </ion-card>
+              <router-link to="/rewards">
+                <ion-card>
+                  <img src="/public/images/rewards-image.jpg" alt="benefits" />
+                  <ion-card-header>
+                    <ion-card-title>See your rewards</ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </router-link>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -126,12 +155,10 @@ export default defineComponent({
 
 ion-toolbar {
   --background: white;
-  
 }
 
 ion-grid {
   --ion-grid-padding: 12px;
-  
 }
 
 ion-col {
@@ -157,21 +184,6 @@ ion-card > ion-card-header {
 
 ion-card > ion-card-header > ion-card-title {
   font-size: 16px;
-}
-
-#calendar-image {
-  background-image: url("/images/calendar-image.webp");
-  --background: cover;
-}
-
-#journal-button {
-  background-image: url("/images/journal-image.webp");
-  --background: cover;
-}
-
-#benefits-button {
-  background-image: url("/images/benefits-image.jpeg");
-  --background: cover;
 }
 
 @media (min-width: 720px) {
