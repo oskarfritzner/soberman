@@ -1,34 +1,27 @@
 <template>
   <ion-page>
     <ion-content>
-      <div>
-        <swiper>
-        <template v-for="(slide, index) in slideData" :key="index">
-            <swiper-slide>
-              <component :is="slide.component"/>
-            </swiper-slide>
-        </template>
+      <swiper>
+        <swiper-slide>
+          <SlideOne />
+        </swiper-slide>
+        <swiper-slide>
+          <SlideTwo />
+        </swiper-slide>
+        <swiper-slide>
+          <SlideThree />
+        </swiper-slide>
       </swiper>
-      </div>
-       </ion-content>
+    </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-
-
-import {
-  IonPage,
-  IonContent,
-  IonCard,
-  IonCardContent,
-} from "@ionic/vue";
-
-// Import Swiper Vue.js components
+import { defineComponent } from "vue";
+import { IonPage, IonContent } from "@ionic/vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import 'swiper/css';
-import '@ionic/vue/css/ionic-swiper.css';
+import "swiper/css";
+import "@ionic/vue/css/ionic-swiper.css";
 
 import SlideOne from "./SlideOne.vue";
 import SlideTwo from "./SlideTwo.vue";
@@ -39,33 +32,16 @@ export default defineComponent({
   components: {
     IonPage,
     IonContent,
-    IonCard,
-    IonCardContent,
     Swiper,
     SwiperSlide,
     SlideOne,
     SlideTwo,
-    SlideThree
-  },
-  setup() {
-    const slideData = ref<any>([
-      { component: SlideOne},
-      { component: SlideTwo},
-      { component: SlideThree }
-    ]);
-
-    return {
-      slideData,
-    };
-
-    
+    SlideThree,
   },
 });
-
 </script>
 
 <style scoped>
-
 .swiper {
   width: 100vw;
   height: 100vh;
@@ -75,10 +51,7 @@ export default defineComponent({
 }
 
 .swiper-slide {
-  font-size: 28px;
-  color: black;
   height: 95vh;
   margin: auto;
 }
-
 </style>
