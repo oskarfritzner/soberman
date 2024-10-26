@@ -22,7 +22,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    // You can fetch a new quote from an API or a list of quotes
+    
   },
 });
 </script>

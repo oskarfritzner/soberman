@@ -24,7 +24,7 @@
         this.selectedDate = day.date;
       },
       saveNote() {
-        // Save the note for the selected date
+        
         console.log(`Note for ${this.selectedDate}: ${this.note}`);
       },
     },
