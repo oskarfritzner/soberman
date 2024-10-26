@@ -4,17 +4,11 @@
     <ion-content>
       <ion-card>
         <ion-card-header>
-          <ion-card-title class="page-title"
-            >Welcome to
-            <span
               ><img
                 class="soberman-image"
-                src="/public/images/soberman-blond.png"
+                src="/public/images/soberman-new.png"
                 alt="Soberman"
               />
-            </span>
-            Soberman</ion-card-title
-          >
         </ion-card-header>
       </ion-card>
       <ion-card>
@@ -29,7 +23,7 @@
               <router-link to="/calendar">
                 <ion-card>
                   <img
-                    src="/public/images/calendar-image.webp"
+                    src="/public/images/49.-Technology.png"
                     alt="Calendar"
                   />
                   <ion-card-header>
@@ -41,7 +35,7 @@
             <ion-col size="6" size-lg="2">
               <router-link to="/journal">
                 <ion-card>
-                  <img src="/public/images/journal-image.webp" alt="Journal" />
+                  <img src="/public/images/50.-Travel.png" alt="Journal" />
                   <ion-card-header>
                     <ion-card-title>Your Sober Journal</ion-card-title>
                   </ion-card-header>
@@ -52,7 +46,7 @@
               <router-link to="/benefits">
                 <ion-card>
                   <img
-                    src="/public/images/benefits-image.jpeg"
+                    src="/public/images/43.-Healthcare.png"
                     alt="benefits"
                   />
                   <ion-card-header>
@@ -64,7 +58,7 @@
             <ion-col size="6" size-lg="2">
               <router-link to="/rewards">
                 <ion-card>
-                  <img src="/public/images/rewards-image.jpg" alt="benefits" />
+                  <img src="/public/images/42.-Fitness.png" alt="benefits" />
                   <ion-card-header>
                     <ion-card-title>See your rewards</ion-card-title>
                   </ion-card-header>
@@ -151,14 +145,18 @@ ion-col > ion-card {
   height: 100%;
 }
 
-ion-card > img {
-  width: 100%;
-  height: 120px;
+.soberman-image {
+  width: 300px;
+  height: auto;
+  border-radius: 20%;
 }
 
 ion-card > ion-card-header {
   padding: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ion-card > ion-card-header > ion-card-title {

@@ -1,16 +1,41 @@
 /* variables.css */
 :root {
-    --ion-color-primary: #00b4d8; /* Light Blue */
-    --ion-color-secondary: #03c03c; /* Green */
-    --ion-color-tertiary: #023e8a; /* Dark Blue/Navy */
-    --ion-color-light: #f0f4f8; /* Light Gray */
-    --ion-color-text: #ffffff; /* White */
-  
-    /* Additional custom colors */
-    --soberman-blue: #5b9cff; /* Soberman's suit */
-    --soberman-green: #0c8347; /* Progress bar color */
-    --soberman-dark-blue: #023e8a;
-    --soberman-light-gray: #f0f4f8;
-    --soberman-white: #ffffff;
-    --soberman-light-blue: #9defff;
-  }
+
+
+  --ion-color-primary: #00b4d8; /* Light Blue */
+  --ion-color-secondary: #03c03c; /* Green */
+  --ion-color-tertiary: #023e8a; /* Dark Blue/Navy */
+  --ion-color-light: #f0f4f8; /* Light Gray */
+  --ion-color-text: #ffffff; /* White */
+
+  /* Additional custom colors */
+  --soberman-blue: #5b9cff; /* Soberman's suit */
+  --soberman-green: #0c8347; /* Progress bar color */
+  --soberman-dark-blue: #023e8a;
+  --soberman-light-gray: #f0f4f8;
+  --soberman-white: #ffffff;
+  --soberman-light-blue: #9defff;
+
+  /* Define gradient colors here */
+  --soberman-gradient: linear-gradient(
+    135deg,
+    var(--soberman-blue),
+    var(--ion-color-light),
+    var(--soberman-dark-blue)
+  );
+}
+
+/* Define custom fonts */
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../theme/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YourFont';
+  src: url('@/assets/fonts/YourFont-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

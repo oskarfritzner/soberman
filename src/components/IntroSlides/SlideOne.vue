@@ -2,7 +2,7 @@
   <div class="slide-container">
     <ion-card>
       <ion-card-content>
-        <img src="/public/images/soberman-blond.png" alt="Soberman" />
+        <img id="intro-soberman-img" src="/public/images/soberman-new.png" alt="Soberman" />
         <RegisterView @registered="moveToNextSlide" />
       </ion-card-content>
     </ion-card>

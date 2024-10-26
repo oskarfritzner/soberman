@@ -45,14 +45,16 @@ export default defineComponent({
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 300px;
+    width: 100%;
     margin: 0;
     box-shadow: 0;
     padding: 10px;
+    --background: none;
   }
   
   ion-card-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   
   ion-button {

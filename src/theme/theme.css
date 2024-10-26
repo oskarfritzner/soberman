@@ -1,0 +1,17 @@
+/* Use the gradient background on ion-content as a fallback */
+ion-content {
+    --background: var(--soberman-gradient);
+    min-height: 100vh;
+}
+
+/* Set ion-card background if needed */
+ion-card {
+    --background: none;
+    box-shadow: none;
+}
+
+* {
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 400;
+
+}

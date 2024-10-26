@@ -1,67 +1,100 @@
-/* SlideStyle.css */
+/* Remove shadows and set base styles for slide-container */
 .slide-container {
     width: 100%;
-    background-color: var(--soberman-blue);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensures full height of the viewport */
+    height: 100vh; /* Full viewport height */
+    box-shadow: none; 
 }
 
-ion-card {
-    height: 80vh;
+/* Scope styles to only ion-cards inside .slide-container */
+.slide-container ion-card {
+    height: 95vh;
+    box-shadow: none;
+    width: 398px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
-ion-card::part(native) {
-    background-color: var(--soberman-blue);
-    color: var(--soberman-green);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+/* Internal styling for ion-card-content */
+.slide-container ion-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
 }
 
-ion-card-content::part(native) {
+/* Specific styling for ion-card-content */
+.slide-container ion-card-content::part(native) {
     font-size: 1.2rem;
     padding: 16px;
+    box-shadow: none; 
 }
 
-h2 {
-    color: var(--soberman-green);
+/* General content styling inside ion-card */
+.slide-container h2 {
+    color: var(--ion-color-tertiary);
+    font-size: 44px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 40px;
 }
 
-ion-input::part(native) {
+/* Style for ion-input inside slide-container */
+.slide-container ion-input::part(native) {
     background-color: var(--soberman-white);
     color: var(--soberman-dark-blue);
     border-radius: 8px;
     padding: 8px;
-    margin-bottom: 16px; /* Adds space between inputs */
+    margin-bottom: 16px;
+    box-shadow: none;
 }
 
-ion-button::part(native) {
-    background-color: var(--soberman-dark-blue); /* Applies the custom green color */
-    color: var(--soberman-white); /* Ensures text color is white */
+/* Style for ion-button inside slide-container */
+.slide-container ion-button::part(native) {
+    background-color: var(--soberman-dark-blue);
+    color: var(--soberman-white);
+    box-shadow: none;
 }
 
-ion-button {
+.slide-container ion-button {
     width: 100%;
     border-radius: 8px;
     margin-top: 16px;
 }
 
-img {
-    max-width: 150px;
+/* Style for images inside slide-container */
+.slide-container img {
+    width: 150px;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 16px auto;
     padding-bottom: 16px;
+    border-radius: 20%;
 }
 
-label {
+/* Label styling */
+.slide-container label {
     margin-top: 10px;
     color: black;
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
+}
+
+/* Responsive styling for the intro image */
+@media (min-width: 768px) {
+    .slide-container img {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slide-container img {
+        max-width: 200px;
+    }
 }
