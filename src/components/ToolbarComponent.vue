@@ -1,10 +1,7 @@
 <template>
   <ion-header>
     <ion-toolbar>
-      <ion-title>
-        <img src="/public/images/Sober.png" alt="Soberman Logo" class="logo" />
-      </ion-title>
-      <ion-buttons slot="end">
+      <ion-buttons slot="start">
         <template v-if="user">
           <ion-button>Welcome, {{ user.displayName }}</ion-button>
         </template>
@@ -45,25 +42,18 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-  height: 40px;
-  width: auto;
-}
-
 ion-toolbar {
-  --background: white;
-  border: none;
+  --background: var(--soberman-blue);
+  --color: var(--soberman-white);
   height: 5vh;
-  width: 100vw;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-ion-title {
-  padding: 0;
-  width: 20%;
+ion-button {
+  --background: transparent;
+  --color: var(--soberman-white);
+  font-weight: bold;
 }
-
 </style>
