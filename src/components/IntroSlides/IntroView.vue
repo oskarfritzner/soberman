@@ -25,6 +25,7 @@ import "@ionic/vue/css/ionic-swiper.css";
 import SlideOne from "./SlideOne.vue";
 import SlideTwo from "./SlideTwo.vue";
 import SlideThree from "./SlideThree.vue";
+import { Swiper as SwiperClass } from "swiper"; 
 
 export default defineComponent({
   name: "IntroView",
@@ -38,12 +39,12 @@ export default defineComponent({
     SlideThree,
   },
   setup() {
-    const swiperRef = ref(null);
+    const swiperRef = ref<SwiperClass | null>(null);
 
-    // Method to navigate to the next slide programmatically
+   
     const goToNextSlide = () => {
       if (swiperRef.value) {
-        swiperRef.value.swiper.slideNext();
+        swiperRef.value.slideNext(); 
       }
     };
 

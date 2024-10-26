@@ -148,7 +148,7 @@ ion-card > ion-card-header > ion-card-title {
   font-size: 16px;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 500px) {
   ion-row {
     margin: 20px;
     justify-content: space-between;
