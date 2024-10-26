@@ -45,13 +45,12 @@
 }
 
 /* Style for ion-input inside slide-container */
-.slide-container ion-input::part(native) {
-    background-color: var(--soberman-white);
-    color: var(--soberman-dark-blue);
-    border-radius: 8px;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-shadow: none;
+.slide-container ion-input {
+    --background: white;
+    text-align: left;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --border-radius: 12px;
 }
 
 /* Style for ion-button inside slide-container */

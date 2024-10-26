@@ -110,6 +110,7 @@ export default defineComponent({
   width: 100%;
   height: 350px;
   margin: 10px 0;
+  border-radius: 40%;
 }
 
 .page-title {
@@ -151,6 +152,10 @@ ion-card > ion-card-header > ion-card-title {
   ion-row {
     margin: 20px;
     justify-content: space-between;
+  }
+
+  .soberman-image {
+    width: 400px;
   }
 }
 </style>
