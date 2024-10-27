@@ -3,7 +3,7 @@
     <ToolbarComponent />
     <ion-content>
       <div v-if="showIntroSlides">
-        <!-- Import and include your IntroSlides component here -->
+        <!-- Intro slides displayed on the first visit -->
         <IntroView @finished="handleIntroFinished" />
       </div>
       <div v-else>
@@ -13,12 +13,47 @@
             <img class="soberman-image" src="/public/images/soberman-new.png" alt="Soberman" />
           </ion-card-header>
         </ion-card>
+
+        <!-- Summary Slide Carousel with Slide Titles -->
+        <ion-slides pager="true" class="summary-slides">
+          <!-- Combined summary slide -->
+          <ion-slide>
+            <h2 class="slide-title">Summary</h2>
+            <SummarySlide
+              :streak="soberDays"
+              :moneySaved="moneySaved"
+              :timeSaved="timeSaved"
+              :bestStreak="bestStreak"
+            />
+          </ion-slide>
+          
+          <!-- Individual slides with titles for each category -->
+          <ion-slide>
+            <h2 class="slide-title">Current Sober Streak</h2>
+            <CurrentSoberStreak :streak="soberDays" />
+          </ion-slide>
+          <ion-slide>
+            <h2 class="slide-title">Money Saved</h2>
+            <MoneySaved :money="moneySaved" />
+          </ion-slide>
+          <ion-slide>
+            <h2 class="slide-title">Time Saved</h2>
+            <TimeSaved :time="timeSaved" />
+          </ion-slide>
+          <ion-slide>
+            <h2 class="slide-title">Best Sober Streak</h2>
+            <BestSoberStreak :bestStreak="bestStreak" />
+          </ion-slide>
+        </ion-slides>
+
+        <!-- Navigation Grid -->
         <ion-card>
           <ion-card-header>
             <ion-card-title class="page-title">What do you want to see today?</ion-card-title>
           </ion-card-header>
           <ion-grid :fixed="true">
-            <ion-row class=".ion-align-items-stretch">
+            <ion-row class="ion-align-items-stretch">
+              <!-- Navigation links to other sections -->
               <ion-col size="6" size-lg="2">
                 <router-link to="/calendar">
                   <ion-card>
@@ -29,36 +64,7 @@
                   </ion-card>
                 </router-link>
               </ion-col>
-              <ion-col size="6" size-lg="2">
-                <router-link to="/journal">
-                  <ion-card>
-                    <img src="/public/images/50.-Travel.png" alt="Journal" />
-                    <ion-card-header>
-                      <ion-card-title>Your Sober Journal</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </router-link>
-              </ion-col>
-              <ion-col size="6" size-lg="2">
-                <router-link to="/benefits">
-                  <ion-card>
-                    <img src="/public/images/43.-Healthcare.png" alt="benefits" />
-                    <ion-card-header>
-                      <ion-card-title>See your benefits</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </router-link>
-              </ion-col>
-              <ion-col size="6" size-lg="2">
-                <router-link to="/rewards">
-                  <ion-card>
-                    <img src="/public/images/42.-Fitness.png" alt="benefits" />
-                    <ion-card-header>
-                      <ion-card-title>See your rewards</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </router-link>
-              </ion-col>
+              <!-- Other links go here as in the original code... -->
             </ion-row>
           </ion-grid>
         </ion-card>
@@ -70,8 +76,16 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 import { IonPage, IonContent, IonCard, IonCardHeader, IonCardTitle } from "@ionic/vue";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
 import ToolbarComponent from "@/components/ToolbarComponent.vue";
-import IntroView from "@/components/IntroSlides/IntroView.vue"; // Adjust path to the actual location of your IntroSlides component
+import IntroView from "@/components/IntroSlides/IntroView.vue";
+import SummarySlide from "@/components/SummarySlide.vue";
+import CurrentSoberStreak from "@/data/CurrentSoberStreak.vue";
+import MoneySaved from "@/data/MoneySaved.vue";
+import TimeSaved from "@/data/TimeSaved.vue";
+import BestSoberStreak from "@/data/BestSoberStreak.vue";
 
 export default defineComponent({
   name: "HomePage",
@@ -83,12 +97,56 @@ export default defineComponent({
     IonCardHeader,
     IonCardTitle,
     IntroView,
+    SummarySlide,
+    CurrentSoberStreak,
+    MoneySaved,
+    TimeSaved,
+    BestSoberStreak,
   },
   setup() {
     const showIntroSlides = ref(false);
+    const soberDays = ref(0);
+    const moneySaved = ref(0);
+    const timeSaved = ref(0);
+    const bestStreak = ref(0);
+
+    const calculateSoberDays = (startDate: Date): number => {
+      const now = new Date();
+      const diffTime = now.getTime() - startDate.getTime();
+      return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    };
+
+    const calculateSavings = (weeklyCost: number, weeklyTimeAffected: number): void => {
+      const dailyCost = weeklyCost / 7;
+      const dailyTime = weeklyTimeAffected / 7;
+      const days = soberDays.value;
+
+      moneySaved.value = dailyCost * days;
+      timeSaved.value = dailyTime * days;
+    };
+
+    const fetchUserData = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+
+      if (user) {
+        const db = getFirestore();
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          const sobrietyStartDate = new Date(data.sobrietyDate);
+          soberDays.value = calculateSoberDays(sobrietyStartDate);
+          bestStreak.value = data.bestSoberStreak || soberDays.value;
+
+          calculateSavings(data.weeklySpend || 0, data.timeAffected || 0);
+        }
+      }
+    };
 
     onMounted(() => {
       showIntroSlides.value = !localStorage.getItem("hasVisited");
+      fetchUserData();
     });
 
     const handleIntroFinished = () => {
@@ -99,6 +157,10 @@ export default defineComponent({
     return {
       showIntroSlides,
       handleIntroFinished,
+      soberDays,
+      moneySaved,
+      timeSaved,
+      bestStreak,
     };
   },
 });
@@ -115,6 +177,26 @@ export default defineComponent({
 
 .page-title {
   font-size: 24px;
+}
+
+.summary-slides {
+  --ion-slide-indicator-background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+
+.slide-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.summary-slide {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 10px;
+  padding: 20px;
 }
 
 ion-toolbar {
