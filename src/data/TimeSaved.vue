@@ -1,6 +1,5 @@
 <template>
     <div class="data-component">
-      <h3>Time Saved</h3>
       <p>{{ formattedTimeSaved }} hours</p>
     </div>
   </template>

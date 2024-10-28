@@ -1,6 +1,5 @@
 <template>
     <div class="data-component">
-      <h3>Money Saved</h3>
       <p>{{ formattedMoneySaved }} kr</p>
     </div>
   </template>

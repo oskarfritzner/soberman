@@ -1,0 +1,66 @@
+/* General Swiper styling for mobile */
+.mySwiper {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: red;
+  }
+  
+  /* Styling each swiper slide */
+  .swiper-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+  }
+  
+  /* Stat title styling */
+  .stat-title {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Stat number styling in a circular container */
+  .stat-number .data-component p {
+    font-size: 2.5rem;
+    color: #4CAF50; /* Customize color as needed */
+    font-weight: bold;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Circle background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Font color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  }
+  
+  /* Card styling */
+  ion-card {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  ion-card-header {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  /* Max-width adjustment for larger screens */
+  @media (min-width: 768px) {
+    .mySwiper {
+      max-width: 400px;
+    }
+    .stat-number {
+      width: 250px;
+      height: 250px;
+      font-size: 3rem;
+    }
+    .stat-title {
+      font-size: 1.2rem;
+    }
+  }

@@ -1,6 +1,5 @@
 <template>
     <div class="data-component">
-      <h3>Current Sober Streak</h3>
       <p>{{ currentStreak }} days</p>
     </div>
   </template>
