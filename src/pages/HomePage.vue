@@ -7,14 +7,14 @@
         <IntroView @finished="handleIntroFinished" />
       </div>
       <div v-else>
-        <!-- Main Home Page Content -->
+        <!-- Main Home Page Content
         <ion-card>
           <ion-card-header>
             <img class="soberman-image" src="/public/images/soberman-new.png" alt="Soberman" />
           </ion-card-header>
         </ion-card>
 
-        <!-- Summary Slider displaying user stats -->
+        Summary Slider displaying user stats -->
         <SummarySlider />
 
         <!-- Navigation Grid -->

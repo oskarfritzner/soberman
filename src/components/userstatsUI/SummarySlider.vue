@@ -1,12 +1,9 @@
 <template>
-    <swiper
+  <swiper
     :slidesPerView="1"
     :spaceBetween="30"
-    :loop="true"
-    :pagination="{
-      clickable: true,
-    }"
-    :navigation="true"
+    :loop="false"
+    :pagination="pagination"
     :modules="modules"
     class="mySwiper"
   >
@@ -26,12 +23,13 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import CurrentSoberStreakUI from "./CurrentStreakUi.vue";
+
+import CurrentSoberStreakUI from "@/components/userstatsUI/CurrentStreakUi.vue";
 import MoneySavedUI from "@/components/userstatsUI/MoneySavedUi.vue";
 import TimeSavedUI from "@/components/userstatsUI/TimeSavedUi.vue";
 import BestSoberStreakUI from "@/components/userstatsUI/BestSoberStreakUi.vue";
-import "./userstatStyle.css";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination } from 'swiper/modules';
 
 export default {
   components: {
@@ -42,12 +40,18 @@ export default {
     TimeSavedUI,
     BestSoberStreakUI,
   },
+  setup() {
+    const menu = ['Current Streak', 'Money Saved', 'Time Saved', 'Best Streak'];
+    
+    return {
+      pagination: {
+        clickable: true,
+        renderBullet: (index, className) => {
+          return `<span class="${className}">${menu[index]}</span>`;
+        },
+      },
+      modules: [Pagination],
+    };
+  },
 };
 </script>
-
-<style scoped>
-.mySwiper {
-  width: 100%;
-  height: 100%;
-}
-</style>
