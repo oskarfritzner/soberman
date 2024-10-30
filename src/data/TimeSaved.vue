@@ -59,4 +59,9 @@
   .data-component {
     text-align: center;
   }
+
+  .data-component p {
+    font-size: 4rem;
+    color: rgb(0, 0, 0);
+  }
   </style>

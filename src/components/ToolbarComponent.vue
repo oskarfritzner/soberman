@@ -1,6 +1,6 @@
 <template>
-  <ion-header>
-    <ion-toolbar>
+  
+    <ion-toolbar class="toolbar-container">
       <!-- Back Arrow Icon on the Left, only visible when not on homepage -->
       <ion-buttons slot="start">
         <ion-button v-if="!isHomePage" @click="goToHome">
@@ -22,7 +22,7 @@
         </template>
       </ion-buttons>
     </ion-toolbar>
-  </ion-header>
+  
 </template>
 
 <script>
@@ -65,11 +65,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 ion-icon {
   font-size: 24px !important;
   width: 24px !important;
   height: 24px !important;
+}
+
+ion-toolbar::part(toolbar-background) {
+  --background: transparent;
 }
 
 ion-button {

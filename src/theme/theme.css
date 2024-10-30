@@ -13,5 +13,8 @@ ion-card {
 * {
     font-family: 'Roboto Slab', sans-serif;
     font-weight: 400;
+}
 
+ion-page {
+    --background: var(--soberman-gradient);
 }

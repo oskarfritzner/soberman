@@ -86,10 +86,6 @@ export default defineComponent({
   font-size: 24px;
 }
 
-ion-toolbar {
-  --background: white;
-}
-
 ion-grid {
   --ion-grid-padding: 12px;
 }
